@@ -14,27 +14,15 @@ import br.com.treinaweb.estruturadados.pilhas.Pilha;
 import br.com.treinaweb.estruturadados.vetores.Vetor;
 
 public class Main {
-	
+
 	/*
 	 * Árvore binária
 	 * 
-	 *    -- R --    --- Raiz
-	 *    |      |
-	 *    E   ---D ---      --- Nó
-	 *        |      |
-	 *        E      D      --- Folhas
-	 *        
-	 *        
-	 *        
-	 *      ---5---
-	 *      |      |
-	 *      4      6---
-	 *                 |
-	 *                 7---
-	 *                     |
-	 *                  ---9
-	 *                  |
-	 *                  8
+	 * -- R -- --- Raiz | | E ---D --- --- Nó | | E D --- Folhas
+	 * 
+	 * 
+	 * 
+	 * ---5--- | | 4 6--- | 7--- | ---9 | 8
 	 */
 
 	public static void main(String[] args) {
@@ -90,6 +78,8 @@ public class Main {
 		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(4, "TreinaWeb 4")));
 		System.out.println(arvorePessoas.toString());
 		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(6, "TreinaWeb 6")));
+		System.out.println(arvorePessoas.toString());
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(7, "TreinaWeb 7")));
 		System.out.println(arvorePessoas.toString());
 	}
 
