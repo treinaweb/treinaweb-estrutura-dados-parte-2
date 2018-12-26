@@ -27,9 +27,4 @@ public class Pilha<T> {
 		return resultado;
 	}
 
-	@Override
-	public String toString() {
-		return "Pilha [" + elementos + "]";
-	}
-
 }

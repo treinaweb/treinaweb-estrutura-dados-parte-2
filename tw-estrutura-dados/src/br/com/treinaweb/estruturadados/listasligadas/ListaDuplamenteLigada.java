@@ -9,6 +9,7 @@ public class ListaDuplamenteLigada<T> {
 	public ListaDuplamenteLigada() {
 		this.primeiroNo = null;
 		this.ultimoNo = null;
+		this.tamanho = 0;
 	}
 
 	public void inserir(T elemento) {
@@ -101,19 +102,19 @@ public class ListaDuplamenteLigada<T> {
 		if (posicao == 0) {
 			No<T> proximoNo = this.primeiroNo.getProximo();
 			this.primeiroNo.setProximo(null);
-			this.primeiroNo.setAnterior(null);
+			proximoNo.setAnterior(null);
 			this.primeiroNo = proximoNo;
 		} else if (posicao == tamanho() - 1) {
 			No<T> penultimoNo = this.ultimoNo.getAnterior();
 			penultimoNo.setProximo(null);
 			this.ultimoNo.setAnterior(null);
 			this.ultimoNo = penultimoNo;
-		} else {
-			No<T> noAnterior = recuperarNo(posicao - 1);
-			No<T> proximoNo = recuperarNo(posicao + 1);
+		} else {			
 			No<T> noAtual = recuperarNo(posicao);
+			No<T> noAnterior = noAtual.getAnterior();
+			No<T> proximoNo = noAtual.getProximo();
 			noAnterior.setProximo(proximoNo);
-			proximoNo.setAnterior(noAnterior);
+			proximoNo.setAnterior(noAnterior);			
 			noAtual.setProximo(null);
 			noAtual.setAnterior(null);
 		}
@@ -154,7 +155,8 @@ public class ListaDuplamenteLigada<T> {
 			sb.append(noAtual.getElemento() != null ? noAtual.getElemento().toString() : "<NULO>");
 			sb.append(",");
 			while (noAtual.getProximo() != null) {
-				sb.append(noAtual.getElemento() != null ? noAtual.getElemento().toString() : "<NULO>");
+				sb.append(noAtual.getProximo().getElemento() != null ? noAtual.getProximo().getElemento().toString()
+						: "<NULO>");
 				sb.append(",");
 				noAtual = noAtual.getProximo();
 			}

@@ -9,6 +9,7 @@ public class ListaLigada<T> {
 	public ListaLigada() {
 		this.primeiroNo = null;
 		this.ultimoNo = null;
+		this.tamanho = 0;
 	}
 
 	public void inserir(T elemento) {
@@ -38,7 +39,7 @@ public class ListaLigada<T> {
 		} else {
 			No<T> noAnterior = recuperarNo(posicao - 1);
 			No<T> noAtual = recuperarNo(posicao);
-			No<T> novoNo = new No<T>(elemento);
+			No<T> novoNo = new No<>(elemento);
 			noAnterior.setProximo(novoNo);
 			novoNo.setProximo(noAtual);
 		}
@@ -145,7 +146,8 @@ public class ListaLigada<T> {
 			sb.append(noAtual.getElemento() != null ? noAtual.getElemento().toString() : "<NULO>");
 			sb.append(",");
 			while (noAtual.getProximo() != null) {
-				sb.append(noAtual.getElemento() != null ? noAtual.getElemento().toString() : "<NULO>");
+				sb.append(noAtual.getProximo().getElemento() != null ? noAtual.getProximo().getElemento().toString()
+						: "<NULO>");
 				sb.append(",");
 				noAtual = noAtual.getProximo();
 			}

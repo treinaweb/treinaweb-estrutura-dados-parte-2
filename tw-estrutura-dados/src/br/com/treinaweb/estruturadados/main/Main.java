@@ -59,7 +59,6 @@ public class Main {
 		System.out.println(conjuntoPessoas.toString());
 		System.out.println(conjuntoPessoas.inserirEm(1, new Pessoa(1, "TreinaWeb")));
 		System.out.println(conjuntoPessoas.toString());
-
 	}
 
 	private static void fazerFila() {
@@ -127,6 +126,7 @@ public class Main {
 		System.out.println(listaPessoas.toString());
 		listaPessoas.remover(0);
 		System.out.println(listaPessoas.toString());
+		System.out.println("Lista de pessoas");
 		for (int i = 0; i < listaPessoas.tamanho(); i++) {
 			System.out.println(listaPessoas.recuperar(i).toString());
 		}
