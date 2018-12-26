@@ -38,6 +38,34 @@ public class Arvore<T> {
 		}
 	}
 
+	public NoArvore<T> buscar(NoArvore<T> noBusca) {
+		return this.buscar(this.raiz, noBusca);
+	}
+
+	private NoArvore<T> buscar(NoArvore<T> ref, NoArvore<T> noBusca) {
+		if (ref.getValor().equals(noBusca.getValor())) {
+			return ref;
+		} else {
+			if (ref.peso() < noBusca.peso()) {
+				// Tem que ir para a direita
+				if (ref.getNoDireito() == null) {
+					throw new IllegalArgumentException("Elemento não encontrado na árvore");
+				} else {
+					System.out.println(" >>> Navegando à direita do nó " + ref.getValor().toString());
+					return buscar(ref.getNoDireito(), noBusca);
+				}
+			} else {
+				// Tem que ir para a esquerda
+				if (ref.getNoEsquerdo() != null) {
+					throw new IllegalArgumentException("Elemento não encontrado na árvore");
+				} else {
+					System.out.println(" >>> Navegando à esquerda do nó " + ref.getValor().toString());
+					return buscar(ref.getNoEsquerdo(), noBusca);
+				}
+			}
+		}
+	}
+
 	@Override
 	public String toString() {
 		return this.raiz == null ? "[(X)]" : this.raiz.toString();

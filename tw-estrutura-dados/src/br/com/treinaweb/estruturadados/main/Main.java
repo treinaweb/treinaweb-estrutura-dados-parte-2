@@ -3,6 +3,7 @@ package br.com.treinaweb.estruturadados.main;
 import java.util.Scanner;
 
 import br.com.treinaweb.estruturadados.arvorebinaria.Arvore;
+import br.com.treinaweb.estruturadados.arvorebinaria.NoArvore;
 import br.com.treinaweb.estruturadados.arvorebinaria.NoArvorePessoa;
 import br.com.treinaweb.estruturadados.conjuntos.Conjunto;
 import br.com.treinaweb.estruturadados.filas.Fila;
@@ -14,15 +15,27 @@ import br.com.treinaweb.estruturadados.pilhas.Pilha;
 import br.com.treinaweb.estruturadados.vetores.Vetor;
 
 public class Main {
-
+	
 	/*
 	 * Árvore binária
 	 * 
-	 * -- R -- --- Raiz | | E ---D --- --- Nó | | E D --- Folhas
-	 * 
-	 * 
-	 * 
-	 * ---5--- | | 4 6--- | 7--- | ---9 | 8
+	 *    -- R --    --- Raiz
+	 *    |      |
+	 *    E   ---D ---      --- Nó
+	 *        |      |
+	 *        E      D      --- Folhas
+	 *        
+	 *        
+	 *        
+	 *      ---5---
+	 *      |      |
+	 *      4      6---
+	 *                 |
+	 *                 7---
+	 *                     |
+	 *                  ---9
+	 *                  |
+	 *                  8
 	 */
 
 	public static void main(String[] args) {
@@ -81,6 +94,11 @@ public class Main {
 		System.out.println(arvorePessoas.toString());
 		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(7, "TreinaWeb 7")));
 		System.out.println(arvorePessoas.toString());
+		System.out.println("Busca...");
+		NoArvore<Pessoa> noPessoa6 = new NoArvorePessoa(new Pessoa(7, "TreinaWeb 7"));
+		NoArvore<Pessoa> noPessoa1 = new NoArvorePessoa(new Pessoa(1, "TreinaWeb 1"));
+		System.out.println(arvorePessoas.buscar(noPessoa6));
+		System.out.println(arvorePessoas.buscar(noPessoa1));
 	}
 
 	private static void fazerMapa() {
