@@ -15,27 +15,15 @@ import br.com.treinaweb.estruturadados.pilhas.Pilha;
 import br.com.treinaweb.estruturadados.vetores.Vetor;
 
 public class Main {
-	
+
 	/*
 	 * Árvore binária
 	 * 
-	 *    -- R --    --- Raiz
-	 *    |      |
-	 *    E   ---D ---      --- Nó
-	 *        |      |
-	 *        E      D      --- Folhas
-	 *        
-	 *        
-	 *        
-	 *      ---5---
-	 *      |      |
-	 *      4      6---
-	 *                 |
-	 *                 7---
-	 *                     |
-	 *                  ---9
-	 *                  |
-	 *                  8
+	 * -- R -- --- Raiz | | E ---D --- --- Nó | | E D --- Folhas
+	 * 
+	 * 
+	 * 
+	 * ---5--- | | 4 6--- | 7--- | ---9 | 8
 	 */
 
 	public static void main(String[] args) {
@@ -107,6 +95,8 @@ public class Main {
 		arvorePessoas.emOrdem();
 		System.out.println("*** PRE ORDEM ***");
 		arvorePessoas.preOrdem();
+		System.out.println("*** PÓS ORDEM ***");
+		arvorePessoas.posOrdem();
 	}
 
 	private static void fazerMapa() {

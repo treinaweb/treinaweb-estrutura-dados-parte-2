@@ -65,17 +65,22 @@ public class Arvore<T> {
 			}
 		}
 	}
-	
+
 	public void emOrdem() {
 		// ERD
 		this.emOrdem(this.raiz);
 	}
-	
+
 	public void preOrdem() {
 		// RED
 		this.preOrdem(this.raiz);
 	}
-	
+
+	public void posOrdem() {
+		// EDR
+		this.posOrdem(this.raiz);
+	}
+
 	private void emOrdem(NoArvore<T> ref) {
 		if (ref.getNoEsquerdo() != null) {
 			emOrdem(ref.getNoEsquerdo());
@@ -90,15 +95,13 @@ public class Arvore<T> {
 			}
 		}
 	}
-	
+
 	/*
-	 *      5(1)
-	 *    3      7
-	 *      4   
-	 *      
-	 *      5,3,4,7
+	 * 5(1) 3 7 4
+	 * 
+	 * 5,3,4,7
 	 */
-	
+
 	private void preOrdem(NoArvore<T> ref) {
 		System.out.println(ref.getValor().toString());
 		if (ref.getNoEsquerdo() != null) {
@@ -109,6 +112,28 @@ public class Arvore<T> {
 		} else {
 			if (ref.getNoDireito() != null) {
 				preOrdem(ref.getNoDireito());
+			}
+		}
+	}
+
+	/*
+	 * h = 2 5 4 7 h = 1 1 6 8
+	 * 
+	 */
+
+	private void posOrdem(NoArvore<T> ref) {
+		if (ref.getNoEsquerdo() != null) {
+			posOrdem(ref.getNoEsquerdo());
+			if (ref.getNoDireito() != null) {
+				posOrdem(ref.getNoDireito());
+			}
+			System.out.println(ref.getValor().toString());
+		} else {
+			if (ref.getNoDireito() != null) {
+				posOrdem(ref.getNoDireito());
+				System.out.println(ref.getValor().toString());
+			} else {
+				System.out.println(ref.getValor().toString());
 			}
 		}
 	}
