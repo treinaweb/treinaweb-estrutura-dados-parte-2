@@ -36,6 +36,33 @@ public class Mapa<K, V> {
 				return;
 			}
 		}
+		throw new IllegalArgumentException(String.format("A chave %s não existe", chave));
+	}
+
+	public void adicionar(K chave, V valor) {
+		if (this.contemChave(chave)) {
+			this.remover(chave);
+		}
+		int numeroEspalhamento = this.gerarNumeroEspalhamento(chave);
+		ListaLigada<Associacao<K, V>> categoria = this.elementos.recuperar(numeroEspalhamento);
+		categoria.inserir(new Associacao<K, V>(chave, valor));
+	}
+
+	public V recuperar(K chave) {
+		int numeroEspalhamento = this.gerarNumeroEspalhamento(chave);
+		ListaLigada<Associacao<K, V>> categoria = this.elementos.recuperar(numeroEspalhamento);
+		for (int i = 0; i < categoria.tamanho(); i++) {
+			Associacao<K, V> associacao = categoria.recuperar(i);
+			if (associacao.getChave().equals(chave)) {
+				return associacao.getValor();
+			}
+		}
+		throw new IllegalArgumentException(String.format("A chave %s não existe", chave));
+	}
+
+	@Override
+	public String toString() {
+		return "Mapa [elementos=" + elementos + "]";
 	}
 
 	private int gerarNumeroEspalhamento(K chave) {
