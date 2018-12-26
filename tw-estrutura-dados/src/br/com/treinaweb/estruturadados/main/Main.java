@@ -15,15 +15,27 @@ import br.com.treinaweb.estruturadados.pilhas.Pilha;
 import br.com.treinaweb.estruturadados.vetores.Vetor;
 
 public class Main {
-
+	
 	/*
 	 * Árvore binária
 	 * 
-	 * -- R -- --- Raiz | | E ---D --- --- Nó | | E D --- Folhas
-	 * 
-	 * 
-	 * 
-	 * ---5--- | | 4 6--- | 7--- | ---9 | 8
+	 *    -- R --    --- Raiz
+	 *    |      |
+	 *    E   ---D ---      --- Nó
+	 *        |      |
+	 *        E      D      --- Folhas
+	 *        
+	 *        
+	 *        
+	 *      ---5---
+	 *      |      |
+	 *      4      6---
+	 *                 |
+	 *                 7---
+	 *                     |
+	 *                  ---9
+	 *                  |
+	 *                  8
 	 */
 
 	public static void main(String[] args) {
@@ -78,18 +90,23 @@ public class Main {
 		System.out.println(arvorePessoas.toString());
 		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(4, "TreinaWeb 4")));
 		System.out.println(arvorePessoas.toString());
-		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(6, "TreinaWeb 6")));
-		System.out.println(arvorePessoas.toString());
 		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(7, "TreinaWeb 7")));
 		System.out.println(arvorePessoas.toString());
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(8, "TreinaWeb 8")));
+		System.out.println(arvorePessoas.toString());
 		System.out.println("Busca...");
-		NoArvore<Pessoa> noPessoa6 = new NoArvorePessoa(new Pessoa(7, "TreinaWeb 7"));
+		NoArvore<Pessoa> noPessoa6 = new NoArvorePessoa(new Pessoa(8, "TreinaWeb 8"));
 //		NoArvore<Pessoa> noPessoa1 = new NoArvorePessoa(new Pessoa(1, "TreinaWeb 1"));
 		System.out.println(arvorePessoas.buscar(noPessoa6));
 //		System.out.println(arvorePessoas.buscar(noPessoa1));
 		System.out.println("*************");
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(1, "TreinaWeb 1")));
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(6, "TreinaWeb 6")));
+		System.out.println(arvorePessoas.toString());
 		System.out.println("*** EM ORDEM ***");
 		arvorePessoas.emOrdem();
+		System.out.println("*** PRE ORDEM ***");
+		arvorePessoas.preOrdem();
 	}
 
 	private static void fazerMapa() {

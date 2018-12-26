@@ -56,7 +56,7 @@ public class Arvore<T> {
 				}
 			} else {
 				// Tem que ir para a esquerda
-				if (ref.getNoEsquerdo() != null) {
+				if (ref.getNoEsquerdo() == null) {
 					throw new IllegalArgumentException("Elemento não encontrado na árvore");
 				} else {
 					System.out.println(" >>> Navegando à esquerda do nó " + ref.getValor().toString());
@@ -65,12 +65,17 @@ public class Arvore<T> {
 			}
 		}
 	}
-
+	
 	public void emOrdem() {
 		// ERD
 		this.emOrdem(this.raiz);
 	}
-
+	
+	public void preOrdem() {
+		// RED
+		this.preOrdem(this.raiz);
+	}
+	
 	private void emOrdem(NoArvore<T> ref) {
 		if (ref.getNoEsquerdo() != null) {
 			emOrdem(ref.getNoEsquerdo());
@@ -82,6 +87,28 @@ public class Arvore<T> {
 			System.out.println(ref.getValor().toString());
 			if (ref.getNoDireito() != null) {
 				emOrdem(ref.getNoDireito());
+			}
+		}
+	}
+	
+	/*
+	 *      5(1)
+	 *    3      7
+	 *      4   
+	 *      
+	 *      5,3,4,7
+	 */
+	
+	private void preOrdem(NoArvore<T> ref) {
+		System.out.println(ref.getValor().toString());
+		if (ref.getNoEsquerdo() != null) {
+			preOrdem(ref.getNoEsquerdo());
+			if (ref.getNoDireito() != null) {
+				preOrdem(ref.getNoDireito());
+			}
+		} else {
+			if (ref.getNoDireito() != null) {
+				preOrdem(ref.getNoDireito());
 			}
 		}
 	}
