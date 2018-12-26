@@ -81,6 +81,10 @@ public class Arvore<T> {
 		this.posOrdem(this.raiz);
 	}
 
+	public int altura() {
+		return this.altura(this.raiz);
+	}
+
 	private void emOrdem(NoArvore<T> ref) {
 		if (ref.getNoEsquerdo() != null) {
 			emOrdem(ref.getNoEsquerdo());
@@ -136,6 +140,15 @@ public class Arvore<T> {
 				System.out.println(ref.getValor().toString());
 			}
 		}
+	}
+
+	private int altura(NoArvore<T> ref) {
+		if (ref == null) {
+			return -1;
+		}
+		int altEsquerda = altura(ref.getNoEsquerdo());
+		int altDireita = altura(ref.getNoDireito());
+		return altEsquerda > altDireita ? altEsquerda + 1 : altDireita + 1;
 	}
 
 	@Override
