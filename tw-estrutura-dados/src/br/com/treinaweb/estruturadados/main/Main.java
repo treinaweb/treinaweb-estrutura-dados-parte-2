@@ -15,27 +15,15 @@ import br.com.treinaweb.estruturadados.pilhas.Pilha;
 import br.com.treinaweb.estruturadados.vetores.Vetor;
 
 public class Main {
-	
+
 	/*
 	 * Árvore binária
 	 * 
-	 *    -- R --    --- Raiz
-	 *    |      |
-	 *    E   ---D ---      --- Nó
-	 *        |      |
-	 *        E      D      --- Folhas
-	 *        
-	 *        
-	 *        
-	 *      ---5---
-	 *      |      |
-	 *      4      6---
-	 *                 |
-	 *                 7---
-	 *                     |
-	 *                  ---9
-	 *                  |
-	 *                  8
+	 * -- R -- --- Raiz | | E ---D --- --- Nó | | E D --- Folhas
+	 * 
+	 * 
+	 * 
+	 * ---5--- | | 4 6--- | 7--- | ---9 | 8
 	 */
 
 	public static void main(String[] args) {
@@ -96,9 +84,12 @@ public class Main {
 		System.out.println(arvorePessoas.toString());
 		System.out.println("Busca...");
 		NoArvore<Pessoa> noPessoa6 = new NoArvorePessoa(new Pessoa(7, "TreinaWeb 7"));
-		NoArvore<Pessoa> noPessoa1 = new NoArvorePessoa(new Pessoa(1, "TreinaWeb 1"));
+//		NoArvore<Pessoa> noPessoa1 = new NoArvorePessoa(new Pessoa(1, "TreinaWeb 1"));
 		System.out.println(arvorePessoas.buscar(noPessoa6));
-		System.out.println(arvorePessoas.buscar(noPessoa1));
+//		System.out.println(arvorePessoas.buscar(noPessoa1));
+		System.out.println("*************");
+		System.out.println("*** EM ORDEM ***");
+		arvorePessoas.emOrdem();
 	}
 
 	private static void fazerMapa() {
