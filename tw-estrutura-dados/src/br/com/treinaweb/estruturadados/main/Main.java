@@ -2,6 +2,8 @@ package br.com.treinaweb.estruturadados.main;
 
 import java.util.Scanner;
 
+import br.com.treinaweb.estruturadados.arvorebinaria.Arvore;
+import br.com.treinaweb.estruturadados.arvorebinaria.NoArvorePessoa;
 import br.com.treinaweb.estruturadados.conjuntos.Conjunto;
 import br.com.treinaweb.estruturadados.filas.Fila;
 import br.com.treinaweb.estruturadados.listasligadas.ListaDuplamenteLigada;
@@ -45,6 +47,7 @@ public class Main {
 		System.out.println("6. Fila");
 		System.out.println("7. Conjunto");
 		System.out.println("8. Mapa");
+		System.out.println("9. Árvore binária");
 		Scanner scanner = new Scanner(System.in);
 		int opcao = scanner.nextInt();
 		switch (opcao) {
@@ -72,8 +75,22 @@ public class Main {
 		case 8:
 			fazerMapa();
 			break;
+		case 9:
+			fazerArvore();
+			break;
 		}
 		scanner.close();
+	}
+
+	private static void fazerArvore() {
+		Arvore<Pessoa> arvorePessoas = new Arvore<Pessoa>();
+		System.out.println(arvorePessoas.toString());
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(5, "TreinaWeb 5")));
+		System.out.println(arvorePessoas.toString());
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(4, "TreinaWeb 4")));
+		System.out.println(arvorePessoas.toString());
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(6, "TreinaWeb 6")));
+		System.out.println(arvorePessoas.toString());
 	}
 
 	private static void fazerMapa() {
